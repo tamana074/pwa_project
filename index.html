@@ -12,14 +12,27 @@
 <body> 
 
     <h1>helo wolrd!</h1>
-    
+    <div id="screen-flights"></div>
     <script>
-        if ('serviceWorker' in navigator) {
+       fetch("https://reqres.in/api/users?page=2")
+      .then(response => response.json())
+      .then(res => {
+        var html = "";
+        res.data.forEach(element => {
+          html += `<div class="card" style="width: 18rem;">${element.first_name}</div>`;
+        });
+        document.querySelector("#screen-flights").innerHTML = html;
+      });
+     
+     
+     
+     if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register("/service-worker.js").then(registeration => {
                     console.log("serviceWorker registration" + registeration);
                 })
                 .catch(error => console.log("serviceWorker ERRor :" + error));
         }
+
     </script>
 </body>
 
