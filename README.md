@@ -1,4 +1,3 @@
-# pwa_project
 
 **PWA (Progressive Web App) Test Project**
 
